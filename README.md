@@ -1,29 +1,27 @@
 # ViT Fine-Tuning on CIFAR-10
 
-This project demonstrates **fine-tuning the Vision Transformer (ViT)** model for **image classification** using the **CIFAR-10 dataset**.  
-It leverages the **Hugging Face Transformers** and **Datasets** libraries to perform model training, validation, and evaluation.
+This project demonstrates how to fine-tune the **Vision Transformer (ViT)** model for **image classification** using the **CIFAR-10 dataset**.  
+It includes two variants — full and partial fine-tuning — to compare model performance, efficiency, and accuracy.
 
 ---
 
 ## Project Overview
-- Loads and preprocesses the CIFAR-10 dataset.  
-- Applies data augmentation and normalization using **torchvision transforms**.  
-- Fine-tunes the **`google/vit-base-patch16-224-in21k`** model on CIFAR-10.  
-- Evaluates model performance using **accuracy** and **confusion matrix**.  
-- Compares inference between:
-  - Pretrained ViT model
-  - Fine-tuned ViT model
-  - BEiT model for reference
+This repository explores **transfer learning with Vision Transformers (ViT)**, a powerful model architecture pretrained on **ImageNet-21k**.  
+Using the **Hugging Face Transformers** library, the project fine-tunes ViT on CIFAR-10 and compares:
+
+- **Full Fine-Tuning:** All model layers are updated.
+- **Partial Fine-Tuning:** Most layers are frozen, and only the last few encoder layers and classifier are trained.
 
 ---
 
-## Technologies Used
-- **Python**
-- **Hugging Face Transformers**
-- **Torch / Torchvision**
-- **Datasets (Hugging Face)**
-- **scikit-learn**
-- **PIL (Pillow)**
+## Project Variants
+
+| Folder | Description |
+|---------|--------------|
+| **`full_finetuning/`** | Fine-tunes **all ViT layers** on CIFAR-10 for maximum adaptation and accuracy. |
+| **`partial_finetuning/`** | **Freezes early layers** and fine-tunes only the **last encoder blocks and classifier head**, improving training speed and generalization. |
+
+Both versions use the same preprocessing pipeline and training configuration.
 
 ---
 
